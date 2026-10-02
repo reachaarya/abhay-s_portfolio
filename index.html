@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abhay Chandra — Portfolio</title>
+  <meta name="description" content="Abhay Chandra — building bold digital experiences for 200+ happy clients." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body class="is-loading">
+
+  <!-- Shared print textures for the inline SVG drawings -->
+  <svg class="defs" aria-hidden="true" width="0" height="0">
+    <defs>
+      <pattern id="ht-dots" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+        <rect width="5" height="5" fill="#f4f0e7" />
+        <circle cx="2.5" cy="2.5" r="1.25" fill="#141414" />
+      </pattern>
+      <pattern id="ht-dense" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+        <rect width="4" height="4" fill="#f4f0e7" />
+        <circle cx="2" cy="2" r="1.6" fill="#141414" />
+      </pattern>
+      <pattern id="ht-lines" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+        <rect width="4" height="4" fill="#f4f0e7" />
+        <rect width="1.6" height="4" fill="#141414" />
+      </pattern>
+    </defs>
+  </svg>
+
+  <!-- ============ INTRO ============ -->
+  <div id="intro" aria-hidden="true">
+    <div class="film-flicker"></div>
+    <div class="film-scratches"><i></i><i></i><i></i></div>
+    <svg class="signature" viewBox="0 0 1200 360" preserveAspectRatio="xMidYMid meet">
+      <defs>
+        <clipPath id="sigClip"><rect class="sig-clip-rect" x="0" y="0" width="0" height="360" /></clipPath>
+      </defs>
+      <g clip-path="url(#sigClip)">
+        <text class="sig-text" x="600" y="235" text-anchor="middle">Abhay Chandra</text>
+      </g>
+      <circle class="sig-nib" cx="0" cy="200" r="5" />
+    </svg>
+    <div class="intro-meta">
+      <span>Special Edition</span><span class="intro-line"></span><span>Vol. I</span><span class="intro-line"></span><span>MMXXVI</span>
+    </div>
+    <div class="intro-count">Printing… <span class="intro-count-num">0</span>%</div>
+    <div class="intro-curve"></div>
+  </div>
+
+  <!-- The bird lives outside the overlay so it stays visible while the curtain lifts -->
+  <div id="bird" aria-hidden="true">
+    <svg viewBox="-4 -12 128 92" width="132" height="95">
+      <g class="wing wing-back"><path d="M58 42 C 50 18, 40 4, 20 -2 C 32 14, 40 28, 48 44 Z" /></g>
+      <path class="bird-tail" d="M16 46 L 0 36 L 6 48 L -2 58 Z" />
+      <ellipse class="bird-body" cx="56" cy="46" rx="40" ry="11" />
+      <circle class="bird-body" cx="94" cy="40" r="10" />
+      <path class="bird-beak" d="M102 37 L 119 42 L 102 46 Z" />
+      <circle class="bird-eye" cx="97" cy="38" r="2.2" />
+      <g class="wing wing-front"><path d="M64 44 C 58 16, 46 -2, 24 -9 C 36 10, 44 28, 50 48 Z" /></g>
+    </svg>
+  </div>
+
+  <!-- ============ CHROME ============ -->
+  <div class="paper" aria-hidden="true"></div>
+  <div class="soak" aria-hidden="true"></div>
+  <canvas class="rain" aria-hidden="true"></canvas>
+  <div class="cursor" aria-hidden="true"><span class="cursor-label"></span></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a href="#home" class="nav-logo" data-cursor="Home"><span class="bl">AC</span></a>
+    <nav class="nav-links">
+      <a href="#mission" data-scramble data-cursor="Read">Editorial</a>
+      <a href="#stats" data-scramble data-cursor="Read">Numbers</a>
+      <a href="#work" data-scramble data-cursor="Read">Stories</a>
+      <a href="#contact" data-scramble data-cursor="Read">Classifieds</a>
+    </nav>
+    <button class="sound-btn" aria-pressed="false" data-cursor="Vibe">
+      <span class="eq"><i></i><i></i><i></i><i></i><i></i></span>
+      <span class="sound-label">Sound off</span>
+    </button>
+  </header>
+
+  <main>
+    <!-- FRONT PAGE -->
+    <section class="front" id="home">
+      <div class="front-inner">
+        <div class="dateline">
+          <span>Vol. I — No. 200</span>
+          <span class="today">Late Edition</span>
+          <span>Price: One Good Idea</span>
+        </div>
+
+        <h1 class="masthead bl">Abhay Chandra</h1>
+
+        <div class="motto-row">
+          <p class="ear">“All the Work<br />That’s Fit to Ship”</p>
+          <div class="motto-rule"></div>
+          <p class="ear ear-right">Weather: Sunny,<br />with a chance of bass</p>
+        </div>
+        <div class="rule-double"></div>
+
+        <div class="front-grid">
+          <div class="lead">
+            <p class="kicker">Special Report</p>
+            <h2 class="headline">Local Creative Keeps <span class="bl">200+</span> Clients Happy, Refuses to Stop</h2>
+            <p class="dek">Building bold digital experiences for brands that want to be <span class="bl">heard</span>, not just seen.</p>
+            <p class="byline">By Abhay Chandra · Staff Creative</p>
+            <a href="#mission" class="continued" data-cursor="Read">Continued on Page 2 ↓</a>
+          </div>
+          <figure class="stage-fig">
+            <div class="stage" id="band"></div>
+            <figcaption><b>Fig. 1</b> — The listening party, live on Side A. Hover a tape, click it to make it spin, and turn the sound on above.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXTRA EXTRA -->
+    <section class="marquee" aria-label="Highlights">
+      <div class="marquee-track">
+        <div class="marquee-item">Extra! Extra! <b>✦</b> 200+ happy clients <b>✦</b> over 10,000 hours logged <b>✦</b> crafted with care <b>✦</b> built to stay on repeat <b>✦</b>&nbsp;</div>
+        <div class="marquee-item" aria-hidden="true">Extra! Extra! <b>✦</b> 200+ happy clients <b>✦</b> over 10,000 hours logged <b>✦</b> crafted with care <b>✦</b> built to stay on repeat <b>✦</b>&nbsp;</div>
+      </div>
+    </section>
+
+    <!-- EDITORIAL / MISSION -->
+    <section class="mission" id="mission">
+      <div class="section-head">
+        <span class="sec-meta">Section B</span>
+        <h2 class="sec-title bl">The Editorial</h2>
+        <span class="sec-meta">Opinion · Page 2</span>
+      </div>
+      <p class="mission-text" aria-label="My mission is simple: help ambitious people and brands turn big ideas into experiences people actually feel. Work that is crafted with care, shipped with momentum, and built to stay on repeat long after launch day.">
+        <span class="dropcap bl" aria-hidden="true">M</span><span class="mission-words" aria-hidden="true">y mission is simple: help ambitious people and brands turn big ideas into experiences people actually <b class="bl">feel</b>. Work that is crafted with <b class="bl">care</b>, shipped with momentum, and built to stay on <b class="bl">repeat</b> long after launch day.</span>
+      </p>
+      <div class="mission-sig"><span class="script">Abhay Chandra</span><span>Editor-in-Chief</span></div>
+    </section>
+
+    <!-- NUMBERS -->
+    <section class="stats" id="stats">
+      <div class="section-head">
+        <span class="sec-meta">Section C</span>
+        <h2 class="sec-title bl">By the Numbers</h2>
+        <span class="sec-meta">Markets · Page 3</span>
+      </div>
+      <div class="ledger">
+        <article class="ledger-item" data-tilt>
+          <div class="ledger-top"><span>Index 01</span><span>▲ Clients</span></div>
+          <svg class="spark-line" viewBox="0 0 200 50" preserveAspectRatio="none"><path d="M0 46 L20 42 L40 44 L60 34 L80 36 L100 26 L120 28 L140 18 L160 20 L180 8 L200 4" /></svg>
+          <div class="num"><span class="count" data-to="200">0</span><sup>+</sup></div>
+          <h3 class="bl">Happy Clients</h3>
+          <p>Founders, creators and teams who came for a project and stayed for the collaboration.</p>
+        </article>
+        <article class="ledger-item" data-tilt>
+          <div class="ledger-top"><span>Index 02</span><span>▲ Hours</span></div>
+          <svg class="spark-line" viewBox="0 0 200 50" preserveAspectRatio="none"><path d="M0 48 L20 44 L40 40 L60 41 L80 32 L100 30 L120 22 L140 20 L160 12 L180 9 L200 2" /></svg>
+          <div class="num"><span class="count" data-to="10000">0</span><sup>+</sup></div>
+          <h3 class="bl">Hours of Experience</h3>
+          <p>A lot. Seriously, a lot. Late nights, early mornings and every hour in between, perfecting the craft.</p>
+        </article>
+        <article class="ledger-item" data-tilt>
+          <div class="ledger-top"><span>Index 03</span><span>▲ Tracks</span></div>
+          <svg class="spark-line" viewBox="0 0 200 50" preserveAspectRatio="none"><path d="M0 40 L20 30 L40 38 L60 22 L80 34 L100 18 L120 30 L140 12 L160 26 L180 10 L200 6" /></svg>
+          <div class="num"><span class="inf">∞</span></div>
+          <h3 class="bl">Tracks on Repeat</h3>
+          <p>The soundtrack behind every build. You can hear a little of it on this page, just hit sound on.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- STORIES (horizontal scroll) -->
+    <section class="work" id="work">
+      <div class="work-pin">
+        <div class="section-head">
+          <span class="sec-meta">Section D</span>
+          <h2 class="sec-title bl">Stories in Print</h2>
+          <span class="sec-meta">Case Studies · Page 4</span>
+        </div>
+        <div class="work-track"></div>
+      </div>
+    </section>
+
+    <!-- CLASSIFIEDS / CONTACT -->
+    <section class="contact" id="contact">
+      <div class="section-head">
+        <span class="sec-meta">Section E</span>
+        <h2 class="sec-title bl">Classifieds</h2>
+        <span class="sec-meta">Page 5</span>
+      </div>
+      <div class="classified-grid">
+        <h2 class="contact-title">
+          <span class="line"><span class="split">Let’s make</span></span>
+          <span class="line"><span class="split">some <span class="bl">noise.</span></span></span>
+        </h2>
+        <div class="ad-box">
+          <p class="ad-head bl">Wanted</p>
+          <p class="ad-body">Ambitious brands with big ideas. No experience necessary. Good vibes essential. Apply within.</p>
+          <a class="telegram" href="mailto:aaryachandra41@gmail.com" data-cursor="Send">
+            <span class="telegram-inner">Send a<br />Telegram ↗</span>
+          </a>
+        </div>
+      </div>
+      <footer class="footer">
+        <span>© <span class="year"></span> Abhay Chandra · All rights reserved</span>
+        <span class="clock">--:--:--</span>
+        <span class="footer-tape">Side A ends · keep scrolling ↓ <span class="mini-reel"></span></span>
+      </footer>
+    </section>
+
+    <!-- FINALE: the soaked paper tears open over a London street -->
+    <section class="finale" id="finale" aria-label="The end of the paper">
+      <div class="finale-pin">
+        <div class="street-cam">
+          <canvas class="street" aria-hidden="true"></canvas>
+          <div class="manhole">
+            <div class="manhole-hole" aria-hidden="true"><i class="rung"></i><i class="rung"></i></div>
+            <div class="manhole-cover"></div>
+            <button class="manhole-hit" type="button" aria-label="Open the manhole cover" data-cursor="Click"></button>
+          </div>
+          <div class="point-hand" aria-hidden="true"></div>
+        </div>
+        <div class="sheet" aria-hidden="true">
+          <div class="tear-half tear-left"></div>
+          <div class="tear-half tear-right"></div>
+        </div>
+        <p class="finale-hint">Keep scrolling to tear it open ↓</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- UNDERGROUND: the website application -->
+  <div class="dive" id="dive" data-lenis-prevent role="dialog" aria-modal="true" aria-labelledby="apply-title" aria-hidden="true">
+    <div class="bulb"></div>
+    <div class="dive-shade" aria-hidden="true"></div>
+    <form class="apply" novalidate>
+      <p class="apply-kicker">Classified · Beneath the Street</p>
+      <h2 id="apply-title" class="apply-title bl">Application for a Website</h2>
+      <p class="apply-dek">You found the secret entrance. Tell me about your project and I’ll write back.</p>
+      <div class="apply-grid">
+        <label>Name<input name="name" required autocomplete="name" /></label>
+        <label>Email<input name="email" type="email" required autocomplete="email" /></label>
+        <label>Company or brand<input name="company" autocomplete="organization" /></label>
+        <label>What do you need?
+          <select name="type">
+            <option>New website</option><option>Redesign</option><option>Landing page</option>
+            <option>Online store</option><option>Web app</option><option>Not sure yet</option>
+          </select>
+        </label>
+        <label>Budget
+          <select name="budget">
+            <option>Under $2k</option><option>$2k – $5k</option><option>$5k – $10k</option>
+            <option>$10k – $25k</option><option>$25k+</option><option>Let’s talk</option>
+          </select>
+        </label>
+        <label>Timeline
+          <select name="timeline">
+            <option>As soon as possible</option><option>Within a month</option><option>1 – 3 months</option><option>Flexible</option>
+          </select>
+        </label>
+        <label class="wide">Tell me about the project<textarea name="details" rows="4" required></textarea></label>
+      </div>
+      <div class="apply-foot">
+        <p class="apply-note">Opens your email app, addressed to Abhay.</p>
+        <button type="submit" class="apply-send" data-cursor="Send">Send it up ↑</button>
+      </div>
+      <p class="apply-status" role="status"></p>
+    </form>
+    <button class="dive-close" type="button" data-cursor="Back">↑ Climb back up</button>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
