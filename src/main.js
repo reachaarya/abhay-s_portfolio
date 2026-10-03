@@ -48,7 +48,6 @@ async function boot() {
 
   setupSound();
   setupNav();
-  setupMagnetic();
   setupTilt();
   setupClock();
   const front = prepareFront();
@@ -417,7 +416,6 @@ function setupScroll(band) {
     scrollTrigger: { trigger: '.contact-title', start: 'top 80%' },
   });
   gsap.from('.ad-box', { y: 60, rotate: 3, opacity: 0, duration: 1.2, ease: 'expo.out', scrollTrigger: { trigger: '.ad-box', start: 'top 88%' } });
-  gsap.from('.telegram', { scale: 2.2, rotate: -40, opacity: 0, duration: 0.7, ease: 'power4.in', scrollTrigger: { trigger: '.telegram', start: 'top 92%' } });
 }
 
 /* ---------------- Story clippings ---------------- */
@@ -433,16 +431,19 @@ function buildWork() {
   const track = q('.work-track');
   const html = caseStudies.map((c, i) => {
     const tag = c.href ? 'a' : 'article';
-    const href = c.href ? ` href="${c.href}"` : '';
+    const href = c.href ? ` href="${c.href}" target="_blank" rel="noopener"` : '';
+    const domain = c.href ? new URL(c.href).hostname.replace(/^www\./, '') : '';
     const tilt = (i % 2 ? 1.4 : -1.2) * (0.6 + Math.random() * 0.6);
+    const kicker = [...c.tags, c.year].filter(Boolean).join(' · ');
     return `
-      <${tag} class="clip" data-tilt data-cursor="${c.href ? 'Read' : 'Soon'}"${href} style="clip-path:${tornEdge()};rotate:${tilt.toFixed(2)}deg">
+      <${tag} class="clip" data-tilt data-cursor="${c.href ? 'Visit' : 'Soon'}"${href} style="clip-path:${tornEdge()};rotate:${tilt.toFixed(2)}deg">
         <div class="clip-photo" style="--gx:${20 + Math.random() * 50}%;--gy:${20 + Math.random() * 40}%">
-          <span class="clip-no">0${i + 1}</span>
+          <span class="clip-no">${String(i + 1).padStart(2, '0')}</span>
         </div>
-        <p class="clip-kicker">${c.tags.join(' · ')} · ${c.year}</p>
+        <p class="clip-kicker">${kicker}</p>
         <h3 class="clip-head">${c.title}</h3>
-        <p class="clip-body">${c.client}. The full story is being set in type and will run in the next edition of this paper.</p>
+        <p class="clip-body">${c.client}. ${c.summary || 'The full story is being set in type and will run in the next edition of this paper.'}</p>
+        ${domain ? `<p class="clip-link">${domain} ↗</p>` : ''}
         <span class="stamp">${c.status}</span>
       </${tag}>`;
   }).join('');
@@ -515,30 +516,6 @@ function setupNav() {
   qa('[data-scramble]').forEach((a) => {
     const text = a.textContent;
     a.addEventListener('mouseenter', () => gsap.to(a, { duration: 0.6, scrambleText: { text, chars: 'upperCase', speed: 0.6 } }));
-  });
-}
-
-/* ---------------- Magnetic telegram button ---------------- */
-function setupMagnetic() {
-  if (!finePointer) return;
-  qa('.telegram').forEach((btn) => {
-    const inner = q('.telegram-inner', btn);
-    const xTo = gsap.quickTo(btn, 'x', { duration: 0.8, ease: 'elastic.out(1, 0.4)' });
-    const yTo = gsap.quickTo(btn, 'y', { duration: 0.8, ease: 'elastic.out(1, 0.4)' });
-    const ixTo = gsap.quickTo(inner, 'x', { duration: 0.8, ease: 'elastic.out(1, 0.4)' });
-    const iyTo = gsap.quickTo(inner, 'y', { duration: 0.8, ease: 'elastic.out(1, 0.4)' });
-    window.addEventListener('pointermove', (e) => {
-      const r = btn.getBoundingClientRect();
-      const cx = r.left - (gsap.getProperty(btn, 'x') || 0) + r.width / 2;
-      const cy = r.top - (gsap.getProperty(btn, 'y') || 0) + r.height / 2;
-      const dx = e.clientX - cx;
-      const dy = e.clientY - cy;
-      const near = Math.hypot(dx, dy) < r.width * 0.9;
-      xTo(near ? dx * 0.35 : 0);
-      yTo(near ? dy * 0.35 : 0);
-      ixTo(near ? dx * 0.15 : 0);
-      iyTo(near ? dy * 0.15 : 0);
-    });
   });
 }
 

@@ -8,6 +8,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap" rel="stylesheet" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#141414" />
   <link rel="stylesheet" href="/src/style.css" />
 </head>
 <body class="is-loading">
@@ -199,14 +204,12 @@
         </h2>
         <div class="ad-box">
           <p class="ad-head bl">Wanted</p>
-          <p class="ad-body">Ambitious brands with big ideas. No experience necessary. Good vibes essential. Apply within.</p>
-          <a class="telegram" href="mailto:aaryachandra41@gmail.com" data-cursor="Send">
-            <span class="telegram-inner">Send a<br />Telegram ↗</span>
-          </a>
+          <p class="ad-body">Ambitious brands with big ideas. No experience necessary. Good vibes essential. Applications accepted beneath the street.</p>
+          <a class="ad-link" href="#finale" data-cursor="Go">Find the entrance ↓</a>
         </div>
       </div>
       <footer class="footer">
-        <span>© <span class="year"></span> Abhay Chandra · All rights reserved</span>
+        <span>© <span class="year"></span> Abhay Chandra · All rights reserved · <a href="/privacy.html" data-cursor="Read">Privacy</a> · <a href="/terms.html" data-cursor="Read">Terms</a></span>
         <span class="clock">--:--:--</span>
         <span class="footer-tape">Side A ends · keep scrolling ↓ <span class="mini-reel"></span></span>
       </footer>
@@ -263,9 +266,11 @@
           </select>
         </label>
         <label class="wide">Tell me about the project<textarea name="details" rows="4" required></textarea></label>
+        <!-- spam trap: real people never see or fill this -->
+        <input class="apply-honey" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
       </div>
       <div class="apply-foot">
-        <p class="apply-note">Opens your email app, addressed to Abhay.</p>
+        <p class="apply-note">Goes straight to Abhay’s inbox. By sending, you agree to the <a href="/privacy.html" target="_blank" rel="noopener">privacy policy</a>.</p>
         <button type="submit" class="apply-send" data-cursor="Send">Send it up ↑</button>
       </div>
       <p class="apply-status" role="status"></p>

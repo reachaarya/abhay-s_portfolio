@@ -468,26 +468,55 @@ export function createFinale({ root, dive, lenis, rain, reduceMotion = false }) 
     if (e.key === 'Escape' && diving) closeDive();
   });
 
-  // the application goes out through the visitor's own email app (no server needed)
-  form.addEventListener('submit', (e) => {
+  // The application is sent straight from the page through FormSubmit (formsubmit.co), so the visitor
+  // never leaves the site. The very first submission makes FormSubmit email a one-time activation link
+  // to EMAIL; once that is clicked, every application lands in the inbox.
+  const send = q('.apply-send', dive);
+  const say = (msg) => {
+    status.textContent = msg;
+    gsap.fromTo(status, { autoAlpha: 0, y: 8 }, { autoAlpha: 1, y: 0, duration: 0.5 });
+  };
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (!form.reportValidity()) return;
     const data = Object.fromEntries(new FormData(form).entries());
-    const subject = `Website application from ${data.name}${data.company ? ` (${data.company})` : ''}`;
-    const body = [
-      `Name: ${data.name}`,
-      `Email: ${data.email}`,
-      `Company / brand: ${data.company || '-'}`,
-      `What they need: ${data.type}`,
-      `Budget: ${data.budget}`,
-      `Timeline: ${data.timeline}`,
-      '',
-      'About the project:',
-      data.details,
-    ].join('\n');
-    window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    status.textContent = 'Your email app should open with the application filled in. Hit send and it goes straight up the pipe to Abhay.';
-    gsap.fromTo(status, { autoAlpha: 0, y: 8 }, { autoAlpha: 1, y: 0, duration: 0.5 });
+    if (data._honey) return; // a bot filled the hidden field
+    delete data._honey;
+
+    send.disabled = true;
+    send.textContent = 'Sending…';
+    try {
+      const res = await fetch(`https://formsubmit.co/ajax/${EMAIL}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          _subject: `Website application from ${data.name}${data.company ? ` (${data.company})` : ''}`,
+          _replyto: data.email,
+          _template: 'table',
+          _captcha: 'false',
+          Name: data.name,
+          Email: data.email,
+          'Company / brand': data.company || '-',
+          'What they need': data.type,
+          Budget: data.budget,
+          Timeline: data.timeline,
+          'About the project': data.details,
+        }),
+      });
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok || String(json.success) !== 'true') throw new Error(json.message || `HTTP ${res.status}`);
+
+      // success: the form folds away and a confirmation takes its place
+      form.classList.add('is-sent');
+      gsap.to(q('.apply-grid', form), { height: 0, autoAlpha: 0, duration: 0.6, ease: 'power3.inOut' });
+      gsap.to(q('.apply-foot', form), { autoAlpha: 0, height: 0, marginTop: 0, duration: 0.4 });
+      say(`Sent! Your application is on its way up the pipe. Abhay will reply to ${data.email}.`);
+    } catch (err) {
+      console.warn('Application failed to send', err);
+      send.disabled = false;
+      send.textContent = 'Try again ↑';
+      say(`That didn’t go through. Please try again, or email ${EMAIL} directly.`);
+    }
   });
 
   // hovering the cover lifts it a touch

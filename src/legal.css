@@ -1,0 +1,19 @@
+/* Privacy policy and terms pages: same newsprint, set as a single long column. */
+:root {
+  --paper: #f1ede4;
+  --ink: #141414;
+  --muted: rgba(20, 20, 20, 0.62);
+}
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: "Old Standard TT", Georgia, serif; -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+::selection { background: var(--ink); color: var(--paper); }
+
+.legal { max-width: 720px; margin: 0 auto; padding: 48px 20px 64px; font-size: 18px; line-height: 1.65; }
+.legal-back { display: inline-block; font: 13px/1 "Special Elite", monospace; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; border-bottom: 1.5px solid var(--ink); padding-bottom: 3px; }
+.legal-kicker { margin: 40px 0 0; padding: 8px 0; border-top: 3px solid var(--ink); border-bottom: 1px solid var(--ink); font: 700 12px/1 "Old Standard TT", serif; letter-spacing: .22em; text-transform: uppercase; }
+.legal-title { margin: 18px 0 0; font: 400 clamp(48px, 9vw, 84px)/1 "UnifrakturMaguntia", serif; }
+.legal-updated { margin: 8px 0 32px; font-style: italic; color: var(--muted); }
+.legal h2 { margin: 36px 0 8px; font: 900 26px/1.15 "Playfair Display", Georgia, serif; }
+.legal p { margin: 0 0 14px; }
+.legal-foot { margin-top: 48px; padding-top: 14px; border-top: 3px solid var(--ink); font: 13px/1 "Special Elite", monospace; letter-spacing: .1em; text-transform: uppercase; }

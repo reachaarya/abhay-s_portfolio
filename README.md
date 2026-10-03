@@ -22,9 +22,9 @@ At the bottom the camera pulls back to two hands holding the soaked back page ov
 Scrolling tears it open, a hand points at a manhole, and clicking the cover flips it off and dives underground,
 where a bulb flickers on over the website application form.
 
-The form has no server behind it: Send opens the visitor's email app with the application filled in, addressed to
-the `EMAIL` set at the top of `src/finale.js`. To receive submissions without an email app, point the form at a service
-such as Formspree instead.
+The form sends straight from the page through FormSubmit (formsubmit.co), a free form-to-email service with no account.
+The very first submission makes FormSubmit email a one-time activation link to the address in `src/finale.js` (`EMAIL`).
+Click it once, and every application after that lands in the inbox.
 
 ## The eagle transition
 
@@ -55,12 +55,14 @@ vertices. It works with any static bird model.
 | Case studies | `src/data.js` (title, client, tags, year, link, stamp text) |
 | Mission text | `index.html`, the `mission` section |
 | Stats (200+ clients, 10,000+ hours) | `index.html`, the `data-to` values in the `stats` section |
-| Contact email | `index.html`, the `mailto:` link on the "Send a Telegram" button |
+| Contact email | `EMAIL` in `src/finale.js`, plus the contact lines in `privacy.html` and `terms.html` |
 | Tapes and people | `TAPES` at the top of `src/band.js` (colours, titles, pose, hair, clothes) |
 | Soundtrack | `src/audio.js` (chords, tempo, drum pattern) |
 | Application form fields | `index.html`, the `#dive` form; budget and timeline options are placeholders |
 | Form email, back-page story, street | `src/finale.js` |
 | Rain strength and sogginess | `src/rain.js` |
+| Privacy policy, terms and copyright | `privacy.html`, `terms.html` |
+| Tab icon | `public/favicon.svg`, then run `node scripts/make-icons.mjs` |
 
 ## Notes
 
